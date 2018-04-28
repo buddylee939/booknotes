@@ -22,6 +22,7 @@
       <h1>Learn enough javascript to be dangerous - Michael Hartl</h1>
       <h2>Table of contents</h2>
       <ul>
+        <li>hello world and how to deploy to github pages</li>
         <li>REPL - read, evaluate, print, loop</li>
         <li>strings</li>
         <li>concatenation and interpolation</li>
@@ -64,9 +65,32 @@
     <div class="col">
       <h2>Chapter 1 - hello world</h2>
       <p>the alert('hello world'): alert is a js function</p>
+      <h3>How to deploy to git hub pages</h3>
+      <ol>
+        <li>login and create a repo in github</li>
+        <li>git init the folder with a index.html at least</li>
+        <li>git push the folder up</li>
+        <li>in github, go to the repo and click on settings</li>
+        <li>go down to 'github pages' and choose 'source' as 'master branch'</li>
+        <li>now go to: https://&lt;username&gt;/github.io/&lt;reponame&gt; </li>
+        <li>and voila</li>
+      </ol>
+      <hr>
+      <h2>Chapter 1.2 JS in a REPL</h2>
+      <p>REPL is a program that reads input, evaluates it, prints out the result, and then loops back to the read step</p>
+      <p>developer tools in chrome are default, in safari, they have to be installed</p>
+      <p>console is a js object, .log is a function of console; <i>in the context of objects, a function like log called suing the dot notation is often called a <b>method</b></i></p>
+      <p>to run js in the command line, use node: to check type 'which node'</p>
+      <p>you should see the path, if not installed, brew install node; or go to the node website</p>
+      <p>instead of using console, to run the hello world in node</p>
+      <p>in terminal type: node, then: console.log('hello world')</p>
+      <p>to exit type '.exit'</p>
     </div>
   </div>
 </div>
+<footer>
+  copyright &copy; 2018
+</footer>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/navbar.js"></script>
