@@ -85,6 +85,40 @@
       <p>instead of using console, to run the hello world in node</p>
       <p>in terminal type: node, then: console.log('hello world')</p>
       <p>to exit type '.exit'</p>
+      <hr>
+      <h2>Chatper 1.3 JS in a file</h2>
+      <p>adding a js file</p>
+      <hr>
+      <h2>Chapter 1.4 JS in a shell script</h2>
+      <p>create a file 'hello' with no extension</p>
+      <p>in it write "#!/usr/local/bin/node console.log('hello shell');"</p>
+      <p>in the command line type 'chmod +x hello'</p>
+      <p>type './hello' and it should execute the shell script</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 2 - strings</h2>
+      <p>basic string example</p>
+      <hr>
+      <h2>Chapter 2.2 - concatenation and interpolation</h2>
+      <p>'concatenation' is joing string together, and 'interpolation' is putting variable content into strings</p>
+      <p>we can use 'let' to create variables, it is characteristic in modern JS, ECMAscript 6</p>
+      <p>we can also use 'const' and 'var' is still popular</p>
+      <p>using 'backticks': another way to build strings is interpolation, using ES6 backtick syntax, known and 'template literals'</p>
+      <pre>
+        // with curly brackets
+        `${firstName} is my first name`
+        `${firstName} ${lastName}`
+      </pre>
+      <p>once you declare a variable, with let or var, you can't declare it again</p>
+      <pre>
+        // gives a syntax error that 'firstName' has already been declared
+        let firstName = 'Pep';
+        var firstName = 'Steve';
+      </pre>
     </div>
   </div>
 </div>

@@ -1,1 +1,1 @@
-alert("hello");
+function print(n){document.write(n)}print("hello function");
