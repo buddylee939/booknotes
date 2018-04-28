@@ -119,6 +119,45 @@
         let firstName = 'Pep';
         var firstName = 'Steve';
       </pre>
+      <hr>
+      <h2>Chapter 2.4 - properties, booleans, and control flow</h2>
+      <p>almost everything in js, including strings, is an object</p>
+      <p>example: 'badger'.length is the length property called on the string object, it is the 'only' property of a string object</p>
+      <p>always use the '===' to test values, because, "1" == 1, is true</p>
+      <p><i>George Boole, thats where booleans come from</i></p>
+      <p><b>control flow</b>: booleans are useful in the flow of a program</p>
+      <pre>
+        let password = 'foo';
+        if (password.length < 6){
+          'password is too short';
+        } else {
+          'password is long enough';
+        }
+      </pre>
+      <p><b>side note: try and keep your code width to 80 characters, if it passes, then maybe break up the code to several lines</b></p>
+      <p>here is 80 characters</p>
+      <p>11111111111111111111111111111111111111111111111111111111111111111111111111111111</p>
+      <p>using &amp;&amp;, || and !</p>
+      <pre>
+        let x = 'foo';
+        let y = '';
+        if (x.length === 0 &amp;&amp; y.length === 0){
+          'both strings are empty';
+        } else {
+          'at least one of the strings is nonempty';
+        }
+
+        if (x.length !== 0) // if not equal
+      </pre>
+      <p>there is even 'bang bang' which is !!</p>
+      <pre>
+        !!true
+        > !'foo'
+        false
+        > !!'foo'
+        true
+        >         
+      </pre>
     </div>
   </div>
 </div>
