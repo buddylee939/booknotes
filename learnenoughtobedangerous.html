@@ -158,9 +158,253 @@
         true
         >         
       </pre>
+      <hr>
+      <h2>Chapter 2.5 - methods</h2>
+      <p> In the language of object-oriented programming, a particular string, or string instance, is said to “respond to” a particular method, indicated using the dot notation first seen in </p>
+      <p>strings respond to instance method toLowerCase()</p>
+      <pre>
+        "HONEY BADGER".toLowerCase()
+      </pre>
+      <p>Starting with ECMAScript 2015, string literals can also be so-called Template literals:</p>
+      <p>long string literals: when your paragraph goes on and on, wrapping based on the text editor, it is better to do this:</p>
+      <pre>
+        let longString = "This is a very long string which needs " +
+        "to wrap across multiple lines because " +
+        "otherwise my code is unreadable.";
+      </pre>
+      <p>or using the backslash character</p>
+      <pre>
+        let longString = "This is a very long string which needs \
+        to wrap across multiple lines because \
+        otherwise my code is unreadable.";        
+      </pre>
+      <p>List of methods unrelated to HTML</p>
+      <ol>
+        <li>String.charAt()</li>
+        <li>String.charCodeAt()</li>
+        <li>String.codePointAt()</li>
+        <li>String.concat()</li>
+        <li>String.includes()</li>
+      </ol>
+      <pre>
+> let soliloquy = "To be, or not to be, that is the question:";
+> soliloquy.includes("To be");        // Does it include the substring "To be"?
+true
+> soliloquy.includes("question");     // What about "question"?
+true
+> soliloquy.includes("nonexistent");  // This string doesn't appear.
+false
+> soliloquy.includes("TO BE");        // String inclusion is case-sensitive.
+false
+> soliloquy.includes("To be", 1);     // Can you guess what this one means?
+false
+> soliloquy.includes("o be,", 1);     // A hint for the previous one
+true        
+      </pre>
+      <p class="bold">Check if a string includes "TO BE", starting the search at position 1: it starts to search within the string, starting at i position, and looking forward</p>
+      <hr>
+      <h2>Chapter 2.6 - string iteration</h2>
+      <p>one sign of your growing power as a developer is learning how to avoid iteration entirely</p>
+      <pre>
+> for (let i = 0; i < 5; i++) {
+  console.log(i);        
+      </pre>
+      <p class="bold">If you find the code in Listing 24 confusing or ugly, you’re in good company. I consider it a hallmark of good programming to using avoid for loops as much as possible, preferring instead forEach loops </p>
+      <pre>
+> for (let i = 0; i < soliloquy.length; i++) {
+  console.log(soliloquy.charAt(i));        
+      </pre>
+      <pre>
+var str = 'Lorem ipsum dolor sit amet, consectetur adipisicing' +
+          'elit. Atque dolor, culpa natus, deleniti, tempora' + 
+          'architecto vel ex quaerat in soluta sit velit autem.';
+var N = str.length;           
+for (var i = 0; i < N; i++){
+  console.log(str.charAt(i));
+  console.log(str[i]); // or using literal bracket notation
+}                     
+      </pre>      
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 3 - Arrays</h2>
+      <h3>Chapter 3.1 - splitting and array access</h3>
+      <pre>
+>  "ant bat cat".split(" ");     // Split a string into a three-element array.
+[ 'ant', 'bat', 'cat' ]        
+      </pre>  
+      <p><b>split</b> returns a list of the strings seperated by ' ' space</p>    
+      <pre>
+> "ant,bat,cat".split(",");
+[ 'ant', 'bat', 'cat' ]
+> "ant, bat, cat".split(", ");
+[ 'ant', 'bat', 'cat' ]
+> "antheybatheycathey".split("hey");
+[ 'ant', 'bat', 'cat' ]   
+> "badger".split("")
+[ 'b', 'a', 'd', 'g', 'e', 'r' ]     
+      </pre>
+      <hr>
+      <h2>Chapter 3.2 - array access</h2>
+      <p>Excercises</p>
+      <hr>
+      <h2>Chapter 3.3 - array slicing</h2>
+      <pre>
+> a = [42, 8, 17, 99];
+[ 42, 8, 17, 99 ]        
+      </pre>     
+      <p>The simplest way to slice an array is to provide only one argument, which returns all the elements in the array from that index on. For example, for an array with four elements, slice(1) returns the second, third, and fourth ones (recall that the “first” or zeroth element has index 0):</p> 
+      <pre>
+> a.slice(1);
+[ 8, 17, 99 ]
+      </pre>
+      <p>We can also slice from one index to another:</p>
+      <pre>
+> a.slice(1, 3);
+[ 8, 17 ]        
+      </pre>
+      <p>finding the last element of an array</p>
+      <pre>
+> a.length;
+4
+> a[a.length-1];
+99        
+      </pre>
+      <p>This leads us to a second method for picking off the last element, which is to use slice with a negative number, which counts from the end:</p>
+      <pre>
+> aMuchLongerArrayName.slice(-1);
+[ 99 ]        
+      </pre>
+      <p>This returns an array with one element, so we can select the element itself using the bracket notation:</p>
+      <pre>
+> aMuchLongerArrayName.slice(-1)[0];
+99        
+      </pre>
+      <h4>Exercises:</h4>
+      <p>Define an array with the numbers 1 through 10. Use slicing and length to select the third element through the third-to-last. Accomplish the same task using a negative index.</p>
+      <p>Show that strings also support the slice method by selecting just bat from the string "ant bat cat". (You might have to experiment a little to get the indices just right.)</p>
+      <pre>
+var myArr = [1,2,3,4,5,6,7,8,9,10];
+console.log(myArr.slice(2, myArr.length-3));
+console.log(myArr.slice(-8,-3));
+
+var test = 'ant bat cat';
+console.log(test.slice(4,7));        
+      </pre>
+      <hr>
+      <h2>Chapter 3.4 - more array methods</h2>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Check the documentation for more methods</a>
+      <p>using 'includes'</p>
+      <pre>
+> a;
+[ 42, 8, 17, 99 ]
+> a.includes(42);       // Test for element inclusion.
+true
+> a.includes("foo");
+false        
+      </pre>
+      <p>sorting and reversing</p>
+      <pre>
+> a.sort();
+[ 17, 42, 8, 99 ]
+> a;                    // `a` has changed as the result of `sort()`.
+[ 17, 42, 8, 99 ]        
+      </pre>
+      <p><i>You might notice something strange here, which is that JavaScript has sorted the elements of the array not according to their numerical values, but rather “alphabetically”, so that 17 comes before 8 because 1 comes before 8 in the ordering scheme (ASCII) used by computers. (We’ll learn how to sort arrays numerically in Chapter 5.)</i></p>
+      <pre>
+> a.reverse();
+[ 99, 8, 42, 17 ]
+> a;                    // Like `sort()`, `reverse()` mutates the array.
+[ 99, 8, 42, 17 ]        
+      </pre>
+      <p>Pushing and Popping</p>
+      <pre>
+> a.push(6);                   // Pushing onto an array (returns new length)
+5
+> a;
+[ 99, 42, 8, 17, 6 ]
+> a.push("foo");
+6
+> a;
+[ 99, 42, 8, 17, 6, 'foo' ]
+> a.pop();                    // `pop` returns the value itself
+'foo'
+> a.pop();
+6
+> a.pop();
+17
+> a;
+[ 99, 42, 8 ]        
+      </pre>
+      <p>As noted in the comments, pop returns the value of the final element (while removing it as a side-effect), but push (somewhat counter-intuitively) returns the length of the new array. As of this writing, I don’t know why (and neither does Stack Overflow).</p>
+      <p>Join method</p>
+      <pre>
+> a = ["ant", "bat", "cat", 42];
+[ 'ant', 'bat', 'cat', 42 ]
+> a.join();                       // Join on default (comma).
+'ant,bat,cat,42'
+> a.join(", ");                   // Join on comma-space.
+'ant, bat, cat, 42'
+> a.join(" -- ");                 // Join on double dashes.
+'ant -- bat -- cat -- 42'        
+      </pre>      
+      <h4>Exercises</h4>
+      <p>The split and join methods are almost inverse operations, but not quite. In particular, confirm using === that a.join(" ").split(" ") in Listing 27 is not the same as a. Why not?</p>
+      <p>Using the array documentation, figure out how to push onto or pop off the front of an array. Hint: The names aren’t intuitive at all, so you might have to work a bit.</p>
+      <pre>
+var newArr = ["ant", "bat", "cat", 42];
+var newArrJ = newArr.join(" ");
+var newArrS = newArrJ.split(" ");
+console.log(newArrJ === newArrS);
+> a
+[ 11, 12, 14, 23 ]
+> a.shift(34) // to pop off from the front
+11
+> a
+[ 12, 14, 23 ]
+> a.unshift(43) // to add to the front
+4
+> a
+[ 43, 12, 14, 23 ]        
+      </pre>
+      <hr>
+      <h2>Chapter 3.5 - string iteration</h2>
+      <pre>
+> for (let i = 0; i < a.length; i++) {
+    console.log(a[i]);
+  }
+ant
+bat
+cat
+42        
+      </pre>     
+      <h4>Exercises</h4> 
+      <p>Show that the identifier i is undefined both before and after a for loop executes. (You might have to exit and re-enter the Node console.)</p>
+      <p>Define an accumulator variable total and combine it with a loop to add all the elements of Listing 29. You can use the code in Listing 30 to get started (just replace the comment with the proper code). How does the value of total compare to a.join("")?</p>
+      <pre>
+var total = '';
+for (var i = 0; i < newArr.length; i++){
+  total += newArr[i];
+}
+console.log(total);
+var totalArr = newArr.join('');
+console.log(totalArr);
+console.log(totalArr === total);        
+      </pre>
+    </div>
+  </div>
+</div> <!-- Chapter 3 arrays -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 4 - other native objects</h2>
+    </div>
+  </div>
+</div> <!-- chapter 4 -->
+
 <footer>
   copyright &copy; 2018
 </footer>
