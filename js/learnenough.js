@@ -1,3 +1,4 @@
+/*
 var str = 'Lorem ipsum dolor sit amet. consectetur adipisicing' +
  					'elit. Atque dolor, culpa natus, deleniti, tempora' +	
  					'architecto vel ex. quaerat in soluta sit velit autem.';
@@ -41,3 +42,12 @@ console.log(total);
 var totalArr = newArr.join('');
 console.log(totalArr);
 console.log(totalArr === total);
+
+*/
+
+// var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday",
+//                        "Thursday", "Friday", "Saturday"];
+// var now = new Date();
+// var dayname = daysOfTheWeek[now.getDay()];
+// alert(`Hello, world! Happy ${dayname}.`);
+

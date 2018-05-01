@@ -332,10 +332,124 @@
       <div class="row">
         <div class="col">
           <h2>Chapter 11 - getting a job without experience</h2>
+          <p>the biggest risk for companies hiring a developer</p>
+          <p>interviewers are going to test you as if they dont want you to make it, but secretly they want you to succeed, they want you to be that person they hire</p>
+          <p>dont let them rattle your cage: keep your cool, be cool</p>
+          <p>many do 'whiteboard coding interviews' where they ask you to code something to see if you know what your doing</p>
+          <p>overcoming that risk: </p>
+          <p>have an online presence: when they google your name, professional blog where you have a bunck of articles about the specific software dev technologies you are specializing in, <b>and its up to date</b></p>
+          <p><b>every soft dev should have a blog</b> even if you have nothing to say, just do it</p>
+          <p>have a portfolio: create some small projects, while learning to code, and your ability by writing an entire application from start to finish</p>
+          <p><b>if I was starting out, I would make my GITHUB profile as impressive as possible</b></p>
+          <p><b>have a portfolio of at least 3-4 apps or projects youve built</b></p>
+          <p>they dont have to be big, but they shouldnt be completeley trivial either</p>
+          <p>include unit test or automated tests</p>
+          <p>you can bring your laptop with one of these projects already loaded up so that you can show the interviewer the code you wrote and go through why you designed things the way you did</p>
+          <p>create your onw company: build an app, sell somewhere, make a little website, and call yourself the developer for that company </p>
+          <p>prepare for interviews: do your homework, spend plenty time preparing by both studying questions and doing mock interview with friends, relatives</p>
+          <p>get a camera and record yourself doing an interview</p>
+          <p><b><i>BUSINESS IDEA: WEBSITE WHERE THEY DO MOCK INTERVIEWS TO PRACTICE</i></b></p>
+          <p>make sure to be ableto pass any kind of coding interview, like in 'cracking the coding interview'</p>
+          <p>build your network: meetups or developer organizations</p>
+          <p>offer to work for free: </p>
+          <p>offer to work on a small project: </p>
+          <p><b><i>Look into Upwork</i></b></p>
+          <p>work in the mail room</p>
+          <p>get certifications: </p>
+          <p>be persistent:</p>
         </div>
       </div>
+    </div> <!-- chapter 11 -->    
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Chapter 12 - How to find a job</h2>
+                <p>the cookie cutter approach: if you are going to take the standard approach, at least be doing it correctly, heres how...</p>
+                <p>its a numbers game: use hte 'job application tracker' from his site to keep track ofjobs applied for, responses received, telephone screens, interviews, offers</p>
+                <p>have a good resume: hire a professional resume writer, who specializes in technology industry resumes, might cost $500</p>
+                <p>crete a quota of jobs to apply for: it should be at least 5 jobs a day, or 10</p>
+                <p>it might take 1 hour per job application: you are going to speciically apply for each job by writing a custom cover letter and altering your resume to better match each job.</p>
+                <p>how to apply for jobs: make your resume and cover letter match the job description and any other information you can gather about the company as much as possible; match as closely without seeming too obvious</p>
+                <p>take a careful look at job descriptions, and feel what the most importan skills and characteristics are being looked for</p>                
+                <p>research the company and write up a cover letter that sells the hiring manager on why you are specifically the best applicant; mention something that only someone who actually did some research on the company would know</p>
+                <p>Measure results: keep track of howmany jobs you appled for, what days, what response if any, what version of your resume, and anything else relevant</p>
+                <p>alter your plan: get feedback, and tweak along the way</p>
+                <p>work directly with a recruiter: </p>
+                <p>think outside the box: 80% of jobs are not advertised,</p>
+                <p>build a network: to get access to jobs that arent advertised is to know someone who know someone.</p>
+                <p>meet lots of people and give them lots of value; find out how you can help the more than the other way around</p>
+                <p><b>as many meetups and software development groups as possible</b></p>
+                <p>specifically target companies: when looking for a remote job, he did the following</p>
+                <ol>
+                    <li>he found one particular company that had completely remote devs</li>
+                    <li>he learnt about the company</li>
+                    <li>he learnt who worked for the company</li>
+                    <li>he started following the blogs of devs who worked for the company</li>
+                    <li>he started commenting on their blogs and building relationships with the devs</li>
+                </ol>
+            </div>
+        </div>
     </div>
 
+
+
+    <!-- programming questions and algorithms -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>From 'Top 50 Programming Interview Questions'</h2>
+                <a href="https://simpleprogrammer.com/programming-interview-questions/">Top 50 Programming Interview Questions</a>
+                <h4>How do you find the missing number in a given integer array of 1 to 100? (solution)</h4>
+                <pre>
+            var bigArr = [];
+            for (var i = 1; i <= 100; i++){
+                bigArr.push(i);
+            }
+            var ranNum = Math.floor(Math.random() * 99) + 1;
+            bigArr.splice(ranNum, 1);
+
+            var missingNum = '';
+            for (var i = 0; i < bigArr.length; i++){    
+                currentNum = bigArr[i];
+                nextNum = bigArr[currentNum];
+                if (currentNum !== nextNum - 1){
+                    missingNum = nextNum - 1;
+                    alert('The missing number is ' + missingNum);
+                    break;
+                } 
+            }
+            console.log(bigArr);        
+                </pre>
+                <h4>How do you find the duplicate number on a given integer array? (solution)</h4>
+                <pre>
+            function randomNum(){
+                return Math.floor(Math.random() * 99) + 1;
+            }
+            var dupArr = [];
+            for (var i = 1; i <= 100; i++){
+                dupArr.push(i);
+            }
+
+            dupArr.push(randomNum());
+
+            dupArr.sort(function(a, b) {
+              return a - b;
+            });
+            console.log(dupArr);
+
+            for (var i = 0; i < dupArr.length; i++){
+                currentNum = dupArr[i];
+                nextNum = dupArr[currentNum];
+                if (currentNum === nextNum){
+                    alert('The duplicate number is ' + currentNum);
+                    break;
+                }
+            }        
+                </pre>                
+            </div>
+        </div>
+    </div>
     <footer>
       copyright &copy; 2018
     </footer>
