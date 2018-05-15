@@ -498,6 +498,87 @@ SyntaxError: Invalid or unexpected token
       <hr>
       <h2>Chapter 4.3 - Regular Expressions (Regex)</h2>
       <p>Use regex101.com when attempting to use regular expressions</p>
+      <hr>
+      <h2>Chapter 4.4 - plain objects</h2>
+      <p>In general, objects in JavaScript can be dizzyingly complex, but in their simplest incarnation they work much like hashes (also called associative arrays) in other languages. You can think of them is being like regular arrays but with strings rather than integers as indices. Each element is thus a pair of values: a string (the key) and an element of any type (the value). These elements are also known as key/value pairs.</p>
+      <pre>
+> let user = {};                    // {} is an empty Object.
+{}
+> user["firstName"] = "Michael";    // Key "firstName", value "Michael"
+'Michael'
+> user["lastName"] = "Hartl";       // Key "lastName", value "Hartl"
+'Hartl'        
+      </pre>
+      <p>The keys in our object are nothing other than the properties we first met in Section 2.4, and as such they can also be accessed using the dot notation we saw with, e.g., string.length:</p>
+      <pre>
+> user.firstName;        // Element access using the dot notation
+'Michael'
+> user.lastName;
+'Hartl'        
+      </pre>
+      <hr>
+      <h2>Chapter 4.5 - Unique words</h2>
+      <p>heres a program to find the count of unique words</p>
+      <pre>
+const sonnet = `Let me not to the marriage of true minds
+Admit impediments. Love is not love
+Which alters when it alteration finds,
+Or bends with the remover to remove.
+O no, it is an ever-fixed mark
+That looks on tempests and is never shaken;
+It is the star to every wand'ring bark,
+Whose worth's unknown, although his height be taken.
+Love's not time's fool, though rosy lips and cheeks
+Within his bending sickle's compass come:
+Love alters not with his brief hours and weeks,
+But bears it out even to the edge of doom.
+  If this be error and upon me proved,
+  I never writ, nor no man ever loved.`;
+
+// Unique words
+let uniques = {};
+// All words in the text
+let reg = /[\w]+/g;
+let words = sonnet.match(reg);
+// console.log(words.length)
+// Iterate through `words` and build up an associative array of unique words.
+for (let i = 0; i < words.length; i++) {
+  let word = words[i];
+  if (uniques[word]) {
+    uniques[word] += 1;
+  } else {
+    uniques[word] = 1;
+  }
+}
+
+console.log(uniques)
+
+// > let uniques = new Map();
+// Map {}
+// > uniques.set("loved", 0);
+// Map { 'loved' => 0 }
+// > let currentValue = uniques.get("loved");
+// > uniques.set("loved", currentValue + 1);
+// Map { 'loved' => 1 }
+
+let uniquesMap = new Map();
+// let reg = /[\w]+/g;
+// let words = sonnet.match(reg);
+for (let i = 0; i < words.length; i++) {
+  let word = words[i];
+  if (uniquesMap.get(word)){
+    let currentValue = uniquesMap.get(word)
+    uniquesMap.set(word, currentValue + 1)
+  } else {
+    uniquesMap.set(word, 1)
+  }
+}
+console.log(uniquesMap);        
+      </pre>
+      <form action="">
+        <textarea rows="4" cols="50" id="textarea" placeholder="Enter Text Here..."></textarea>
+        <input type="submit" id="btnSubmit">
+      </form>
     </div>
   </div>
 </div> <!-- chapter 4 -->
