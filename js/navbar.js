@@ -14,6 +14,7 @@ var navbar = '<nav class="navbar navbar-inverse navbar-fixed-top">';
 		navbar += '<li><a href="index.html">Home</a></li>';
 		navbar += '<li><a href="completesoftwaredeveloper.html">Complete Software Developer</a></li>';
 		navbar += '<li><a href="learnenoughtobedangerous.html">Learn enough to be dangerouse</a></li>';
+		navbar += '<li><a href="lyndajs.html">Lynda JS 2011</a></li>';
 		navbar += '</ul>';
 		navbar += '</div>';
 		navbar += '</div>';
