@@ -579,6 +579,49 @@ console.log(uniquesMap);
         <textarea rows="4" cols="50" id="textarea" placeholder="Enter Text Here..."></textarea>
         <input type="submit" id="btnSubmit">
       </form>
+      <p>here is the word counting with sorting</p>
+      <pre>
+function sortWords(object){
+  var sortable = [];
+  for (var newWord in object) {
+      sortable.push([newWord, object[newWord]]);
+  }
+
+  sortable.sort(function(a, b) {
+      return a[1] - b[1];
+  });
+
+  console.log('There are now ' + sortable.length + ' unique words in that text');
+  console.log(sortable.reverse());  
+}
+
+function uniqueWord(textarea){  
+  let uniquesW = {};
+  let regex = /[\w'-]+/g;
+
+  let wordsNew = textarea.match(regex);
+  for (let i = 0; i < wordsNew.length; i++) {
+    let word = wordsNew[i].toLowerCase();
+    if (uniquesW[word]) {
+      uniquesW[word] += 1;
+    } else {
+      uniquesW[word] = 1;
+    }
+  }
+  // console.log(uniquesW); 
+  return uniquesW;
+}
+
+$('#btnSubmit').click(function(e){
+  var wordObject = {};
+  e.preventDefault();
+  var textarea = $('#textarea').val();
+  wordObject = uniqueWord(textarea);
+  // console.log(wordObject);
+  sortWords(wordObject);
+});
+        
+      </pre>
     </div>
   </div>
 </div> <!-- chapter 4 -->

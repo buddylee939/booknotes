@@ -108,14 +108,6 @@ console.log(uniquesMap);
 
 
 function sortWords(object){
-	var maxSpeed = {
-	    car: 300, 
-	    bike: 60, 
-	    motorbike: 200, 
-	    airplane: 1000,
-	    helicopter: 400, 
-	    rocket: 8 * 60 * 60
-	};
 	var sortable = [];
 	for (var newWord in object) {
 	    sortable.push([newWord, object[newWord]]);
