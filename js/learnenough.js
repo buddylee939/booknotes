@@ -147,3 +147,26 @@ $('#btnSubmit').click(function(e){
 	sortWords(wordObject);
 });
 
+
+function dayOfTheWeek(date) {
+  const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                         "Thursday", "Friday", "Saturday"];
+  return daysOfTheWeek[date.getDay()];
+}
+
+let now = new Date();
+// alert(`Hello, world! Happy ${dayOfTheWeek(now)}.`);
+
+function palindrome(string) {
+	var str = string.toLowerCase();
+	var newStr = str.split("").reverse().join('');
+	return str === newStr;
+}
+
+// alert(palindrome('test'));
+
+function emailParts(address){
+	return address.split('@');
+}
+
+// alert(emailParts('test@test.com'));

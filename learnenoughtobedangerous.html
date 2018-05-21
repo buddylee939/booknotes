@@ -625,7 +625,139 @@ $('#btnSubmit').click(function(e){
     </div>
   </div>
 </div> <!-- chapter 4 -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 5 - functions</h2>
+      <h3>Function definitions</h3>
+      <p>sorting numerical arrays</p>
+      <pre>
+> let a = [8, 17, 42, 99];
+> a.sort();
+[ 17, 42, 8, 99 ]        
+      </pre>
+      <p>that sorts alphabetically, but to do numercically</p>
+      <pre>
+> function numberCompare(a, b) {
+    if (a > b) {
+      return 1;
+    } else if (a < b) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+> a.sort(numberCompare);
+[ 8, 17, 42, 99 ]          
+      </pre>
+      <p>Fat arrows: ES6 adds a second method for defining functions known as a “fat arrow”, indicated with an equals sign followed by a right angle bracket: =>. We can define an alternate string message function by combining => and let keyword:</p>
+      <pre>
+> let alt_string_message = (string) => {
+    if (string) {
+      return "The string is nonempty.";
+    } else {
+      return "It's an empty string!";
+    }
+  }
+> alt_string_message("honey badger");
+'The string is nonempty '        
+      </pre>
+      <p>in other words, these are the same</p>
+      <pre>
+function name(arg) {
+  // code
+}
+let name = (arg) => {
+  // code
+}        
+      </pre>
+      <h2>Chapter 5.2 functions in a file</h2>
+      <p>creating a date function</p>
+      <pre>
+function dayOfTheWeek(date) {
+  const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                         "Thursday", "Friday", "Saturday"];
+  return daysOfTheWeek[date.getDay()];
+}
 
+let now = new Date();
+alert(`Hello, world! Happy ${dayOfTheWeek(now)}.`);        
+      </pre>
+      <h2>Chapter 5.3 - method chaining</h2>
+      <p>palindrome test</p>
+      <pre>
+// Reverses a string.
+function reverse(string) {
+  return string.split("").reverse().join("");
+}
+
+// Returns true for a palindrome, false otherwise.
+function palindrome(string) {
+  let processedContent = string.toLowerCase();
+  return processedContent === reverse(processedContent);
+}
+alert(palindrome("racecar"));        
+      </pre>
+      <p>he did one version with emojis</p>
+      <pre>
+// Reverses a string.
+function reverse(string) {
+  return Array.from(string).reverse().join("")
+}
+
+// Returns true for a palindrome, false otherwise.
+function palindrome(string) {
+  let processedContent = string.toLowerCase();
+  return processedContent === reverse(processedContent);
+}
+function emailParts(email) {
+  // FILL IN
+}        
+      </pre>
+      <h2>Chapter 5.4 - iteration for each</h2>
+      <p>regular for loop</p>
+      <pre>
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}        
+      </pre>
+      <p>with the forEach</p>
+      <pre>
+array.forEach(function(element) {
+  console.log(element);
+});
+> [42, 17, 85].forEach(function(element) {
+    console.log(element);
+  });
+42
+17
+85
+let a = ["ant", "bat", "cat", 42];
+a.forEach(function(element) {
+  console.log(element);
+});        
+      </pre>
+      <p>Array.from</p>
+      <pre>
+> Array.from("honey badger");
+[ 'h', 'o', 'n', 'e', 'y', ' ', 'b', 'a', 'd', 'g', 'e', 'r' ]        
+      </pre>
+      <pre>
+let soliloquy = "To be, or not to be, that is the question:";
+Array.from(soliloquy).forEach(function(character) {
+  console.log(character);
+});        
+      </pre>
+    </div>
+  </div>
+</div> <!-- Chapter 5 -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 6</h2>
+    </div>
+  </div>
+</div> <!-- chapter 6 -->
 <footer>
   copyright &copy; 2018
 </footer>
