@@ -170,3 +170,33 @@ function emailParts(address){
 }
 
 // alert(emailParts('test@test.com'));
+
+/* Chapter 6 Functional Programming */
+let states = ["North Dakota", "South Dakota", "North Carolina", "South Carolina"];
+
+function urlify(string) {
+  return string.toLowerCase().split(/\s+/).join('-');
+}
+
+function imperativeMap(states) {
+  let urlStates = [];
+  states.forEach(function(state) {
+    urlStates.push("https://example.com/" + urlify(state));
+  });
+  return urlStates;
+}
+console.log(imperativeMap(states));
+
+function functionalFilter(states) {
+  return states.filter(state => state.split(/\s+/).length === 2);
+}
+console.log(functionalFilter(states));   
+
+console.log(states.includes('South Dakota'));
+
+// using reduce
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function functionalProduct(array) {
+  return array.reduce((total, n) => { return total *= n });
+}
+console.log(functionalProduct(a));  

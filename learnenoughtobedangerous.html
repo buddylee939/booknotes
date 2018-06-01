@@ -755,10 +755,209 @@ Array.from(soliloquy).forEach(function(character) {
   <div class="row">
     <div class="col">
       <h2>Chapter 6 - functional programming</h2>
-      <p>ut</p>
+      <h3>using the MAP function</h3>
+      <p>this is with a forEach loop</p>
+      <pre>
+let states = ["Kansas", "Nebraska", "North Dakota", "South Dakota"];
+
+// map: Imperative version
+function imperativeMap(states) {
+  let urlStates = [];
+  states.forEach(function(state) {
+    urlStates.push(state.toLowerCase().split(/\s+/).join("-"));
+  });
+  return urlStates;
+}
+console.log(imperativeMap(states));        
+      </pre>
+      <p>this is using MAP</p>
+      <pre>
+        [1, 2, 3, 4].map(function(n) { return n * n; });
+        [ 1, 4, 9, 16 ]
+      </pre>
+      <p>Even better, for the very common case of a function of a single argument, JavaScript allows us to omit the parentheses, curly braces, and even the return keyword, leading to the following incredibly compact code:</p>
+      <pre>
+> [1, 2, 3, 4].map(n => n * n);
+[ 1, 4, 9, 16 ]        
+      </pre>
+      <p>redoing the forEach with map</p>
+      <pre>
+// map: Functional version
+function functionalMap(states) {
+  return states.map(state => state.toLowerCase().split(/\s+/).join('-'));
+}
+console.log(functionalMap(states));      
+      </pre>
+      <p>Defining this function in functional.js and using it in the imperative and functional versions gives the code in Listing 56.</p>
+      <pre>
+let states = ["Kansas", "Nebraska", "North Dakota", "South Dakota"];
+
+// Returns a URL-friendly version of a string.
+//  Example: "North Dakota" -> "north-dakota"
+function urlify(string) {
+  return string.toLowerCase().split(/\s+/).join('-');
+}
+
+// map: Imperative version
+function imperativeMap(states) {
+  let urlStates = [];
+  states.forEach(function(state) {
+    urlStates.push(urlify(state));
+  });
+  return urlStates;
+}
+console.log(imperativeMap(states));
+
+// map: Functional version
+function functionalMap(states) {
+  return states.map(state => urlify(state));
+}
+console.log(functionalMap(states));        
+      </pre>
+      <h2>6.2 Filter</h2>
+      <p>We can combine % and filter to process an array of numbers and select just the even ones:</p>
+      <pre>
+> [1, 2, 3, 4, 5, 6, 7, 8].filter(n => n % 2 === 0);
+[ 2, 4, 6, 8 ]        
+      </pre>
+      <p>We can apply filter to the code from Section 6.1 to filter out the strings in our states array that consist of more than one word, keeping the names that have only one. As before, we’ll write an imperative version first:</p>
+      <pre>
+let states = ["Kansas", "Nebraska", "North Dakota", "South Dakota"];
+.
+.
+.
+// filter: Imperative version
+function imperativeFilter(states) {
+  let singleWordStates = [];
+  states.forEach(function(state) {
+    if (state.split(/\s+/).length === 1) {
+      singleWordStates.push(state);
+    }
+  });
+  return singleWordStates;
+}
+console.log(imperativeFilter(states));        
+      </pre>
+      <p>the using the filter</p>
+      <pre>
+let states = ["Kansas", "Nebraska", "North Dakota", "South Dakota"];
+.
+.
+.
+// filter: Imperative version
+function imperativeFilter(states) {
+  let singleWordStates = [];
+  states.forEach(function(state) {
+    if (state.split(/\s+/).length === 1) {
+      singleWordStates.push(state);
+    }
+  });
+  return singleWordStates;
+}
+console.log(imperativeFilter(states));
+
+// filter: Functional version
+function functionalFilter(states) {
+  return states.filter(state => state.split(/\s+/).length === 1);
+}
+console.log(functionalFilter(states));        
+      </pre>
+      <h2>Using Reduce</h2>
+      <p>We’ll begin with an iterative solution for the sum function, which involves (as usual) a forEach loop and an auxiliary variable (total), which we use to accumulate the result. The result appears in Listing 59.</p>
+      <pre>
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// reduce: Iterative solution
+function iterativeSum(array) {
+  let total = 0;
+  array.forEach(function(n) {
+    total += n;
+  });
+  return total;
+}
+console.log(iterativeSum(a));        
+      </pre>
+      <p>the reduce solution</p>
+      <pre>
+> let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+> array.reduce((total, n) => {
+    total += n;
+    return total;
+  }, 0);
+55        
+      </pre>
+      <p>You can see what I meant by “tricky”. The reduce method takes a function of two arguments, the first of which is an accumulator for the result, and the second of which is the array element itself. The return value of the (anonymous) function gets passed back to reduce as the starting value for the next element in the array. The second argument is the initial value of the accumulator (in this case, 0).</p>
+      <pre>
+> array.reduce((total, n) => { return total += n }, 0);
+55        
+      </pre>
+      <p>Second, the initial value is 0 by default, so in this case it can be left off:</p>
+      <pre>
+> array.reduce((total, n) => { return total += n });
+55        
+      </pre>
+      <p>the full versions</p>
+      <pre>
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// reduce: Iterative solution
+function iterativeSum(array) {
+  let total = 0;
+  array.forEach(function(n) {
+    total += n;
+  });
+  return total;
+}
+console.log(iterativeSum(a));
+
+// reduce: Functional solution
+function functionalSum(array) {
+  return array.reduce((total, n) => { return total += n });
+}
+console.log(functionalSum(a));        
+      </pre>
+      <p>reduce example 2</p>
+      <pre>
+function imperativeLengths(states) {
+  let lengths = {};
+  states.forEach(function(state) {
+    lengths[state] = state.length;
+  });
+  return lengths;
+}
+console.log(imperativeLengths(states));        
+      </pre>
+      <p>the full code</p>
+      <pre>
+// reduce object: Imperative solution
+function imperativeLengths(states) {
+  let lengths = {};
+  states.forEach(function(state) {
+    lengths[state] = state.length;
+  });
+  return lengths;
+}
+console.log(imperativeLengths(states));
+
+// reduce object: Functional solution
+function functionalLengths(states) {
+  return states.reduce((lengths, state) => {
+                          lengths[state] = state.length;
+                          return lengths;
+                        }, {});
+}
+console.log(functionalLengths(states));        
+      </pre>
     </div>
   </div>
 </div> <!-- chapter 6 -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 7 - objects and prototypes</h2>
+    </div>
+  </div>
+</div> <!-- chapter 7 -->
 <footer>
   copyright &copy; 2018
 </footer>
