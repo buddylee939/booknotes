@@ -172,6 +172,7 @@ function emailParts(address){
 // alert(emailParts('test@test.com'));
 
 /* Chapter 6 Functional Programming */
+/*
 let states = ["North Dakota", "South Dakota", "North Carolina", "South Carolina"];
 
 function urlify(string) {
@@ -200,3 +201,82 @@ function functionalProduct(array) {
   return array.reduce((total, n) => { return total *= n });
 }
 console.log(functionalProduct(a));  
+
+// Reverses a string.
+function reverse(string) {
+  return Array.from(string).reverse().join("");
+}
+
+// Defines a Phrase object.
+function Phrase(content) {
+  this.content = content;
+
+  // Returns true if the phrase is a palindrome, false otherwise.
+  this.palindrome = function palindrome() {
+    let processedContent = this.content.toLowerCase();
+    return processedContent === reverse(processedContent);
+  }
+
+  // Makes the phrase LOUDER.
+  this.louder = function louder(){
+  	let louderContent = this.content.toUpperCase();
+  	return louderContent;
+  }
+
+  // Makes the phrase backwards
+  this.backwards = function backwards(){
+  	return reverse(this.content);
+  }
+
+  // Makes the phrase an array
+  this.toArray = function toArray(){
+  	return Array.from(this.content);
+  }
+}
+let phrase = new Phrase('tree hugger');
+let p = new Phrase('yo adrian');
+console.log(phrase.content.toLowerCase() + ' is ' + phrase.palindrome());
+console.log(phrase.louder());
+console.log(phrase.backwards());
+console.log(phrase.toArray());
+console.log(p.louder());
+*/							
+
+// Prototypes
+// Reverses a string.
+function reverse(string) {
+  return Array.from(string).reverse().join("");
+}
+
+function Phrase(content) {
+  this.content = content;
+
+  this.processor = function(string) {
+    return string.toLowerCase();
+  }
+
+  this.processedContent = function() {
+    return this.processor(this.content);
+  }
+
+  // Returns true if the phrase is a palindrome, false otherwise.
+  this.palindrome = function() {
+    return this.processedContent() === reverse(this.processedContent());
+  }
+}
+
+function TranslatedPhrase(content, translation) {
+  this.content = content;
+  this.translation = translation;
+
+  // Returns translation processed for palindrome testing.
+  this.processedContent = function() {
+    return this.processor(this.translation);
+  }
+}
+
+TranslatedPhrase.prototype = new Phrase();
+
+let frase = new TranslatedPhrase("recognize", "reconocer");
+console.log('Frase Palindrome, true or false: ' + frase.palindrome());							
+console.log(frase);
