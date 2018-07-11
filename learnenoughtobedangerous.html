@@ -1069,10 +1069,74 @@ function Phrase(content) {
   <div class="row">
     <div class="col">
       <h2>8 Testing and test-driven development</h2>
+      <h3>TODO AT A LATER DATE</h3>
     </div>
   </div>
 </div> <!-- chapter 8 -->
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Chapter 9 Events and DOM manipulation</h2>
+      <p>created a palindrom.html and main.js to prompt user to enter a string</p>
+      <h2>Chapter 9.2 event listeners</h2>
+      <p>added a button and event listeners</p>
+      <h2>9.3 dynamic html</h2>
+      <p>added a paragraph to output the result instead of an alert box</p>
+      <h2>9.4 form handling</h2>
+      <p>the final html and js</p>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Palindrome Tester&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;script src="bundle.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Palindrome Tester&lt;/h1&gt;
+
+    &lt;form id="palindromeTester"&gt;
+      &lt;textarea name="phrase" rows="10" cols="30"&gt;&lt;/textarea&gt;
+      &lt;br&gt;
+      &lt;button type="submit"&gt;Is it a palindrome?&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;h2&gt;Result&lt;/h2&gt;
+
+    &lt;p id="palindromeResult"&gt;&lt;/p&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;        
+      </pre>
+      <pre>
+
+let Phrase = require("mhartl-palindrome");
+
+function palindromeTester(event) {
+  event.preventDefault();
+
+  let phrase = new Phrase(event.target.phrase.value);
+  let palindromeResult = document.querySelector("#palindromeResult");
+
+  if (phrase.palindrome()) {
+    palindromeResult.innerHTML = `"${phrase.content}" is a palindrome!`;
+  } else {
+    palindromeResult.innerHTML = `"${phrase.content}" is a not a palindrome.`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  let tester = document.querySelector("#palindromeTester");
+  tester.addEventListener("submit", function(event) {
+    palindromeTester(event);
+  });
+});        
+      </pre>
+    </div>
+  </div>
+</div> <!-- chapter 9 -->
+.container>.row>.col>h2{Chapter 10 Shell scripts with Node.js}
 
 <footer>
   copyright &copy; 2018
